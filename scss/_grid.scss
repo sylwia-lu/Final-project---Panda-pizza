@@ -1,0 +1,35 @@
+
+$columns: 12;
+$one-column-width:1/$columns;
+$max-container-width:1200px;
+
+
+.row:before, .row:after {
+  content: " ";
+  display:table;
+  clear:both;
+}
+
+
+
+  .row {
+
+
+    [class*='col-'] {
+      padding: 12px 0;
+      min-height: 1px;
+      box-sizing: border-box;
+      float: left;
+    }
+
+      @mixin col-x-list {
+        @for $i from 1 through $columns {
+          $width: percentage($one-column-width * $i);
+          .col-#{$i} {
+            width: $width;
+          }
+        }
+      }
+      @include col-x-list;
+
+  }
