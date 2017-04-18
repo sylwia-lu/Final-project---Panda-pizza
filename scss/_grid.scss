@@ -1,7 +1,7 @@
 
 $columns: 12;
 $one-column-width:1/$columns;
-$max-container-width:1200px;
+$max-container-width:1600px;
 
 
 .row:before, .row:after {
@@ -20,6 +20,7 @@ $max-container-width:1200px;
       min-height: 1px;
       box-sizing: border-box;
       float: left;
+      position: relative;
     }
 
       @mixin col-x-list {
