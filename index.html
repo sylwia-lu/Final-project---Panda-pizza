@@ -10,30 +10,25 @@
 <body>
 
 
-    <header>
+    <header class="row">
 
-            <nav class="container row">
-                <div id="logo" class="col-4"></div>
-                <div class="col-2"></div>
-                <div class="col-6">
-                    <ul id="menu">
+            <nav class="container">
+                <div class="col-4 logo"id="logo" ></div>
+
+                <div class="col-8">
+                    <ul class="menu" id="menu">
                         <li>
-                            <a href="#">
-                                O nas
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
+                            <a href="#prices">
                                 Cennik
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="#delivery">
                                 Dostawa
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="#contact">
                                 Kontakt
                             </a>
                         </li>
@@ -48,29 +43,13 @@
 
     </header>
 
-    <section id="info" class="row">
+
+    <section class="info row" id="info">
 
             <div class="container">
 
 
-                <div class="col-6">
-                    <div class="intro">
-                        <p>Skomponuj własą pizzę i zamów ją do domu.</p>
-                        <p>Wybierz:</p>
-                        <ul>
-                            <li>rozmiar</li>
-                            <li>dodatki - sos i mozzarella są podstawą</li>
-                            <li>sosy</li>
-                        </ul>
 
-
-                        <p>Możesz też wybrać pizzę z naszych propozycji i zrezygnować z dodatku, którego nie lubisz.</p>
-
-                        <button>Zaczynamy</button>
-
-                    </div>
-
-                </div>
 
                 <div class="col-6">
                     <div class="sidebar">
@@ -86,12 +65,41 @@
 
                 </div>
 
+
+                <div class="col-6">
+                    <div class="intro">
+                        <p>Skomponuj własą pizzę i zamów ją do domu.</p>
+                        <p>Wybierz:</p>
+                        <ul>
+                            <li>rozmiar</li>
+                            <li>dodatki - sos i mozzarella są podstawą</li>
+                            <li>sosy</li>
+                        </ul>
+
+
+                        <p>Możesz też wybrać pizzę z naszych propozycji i zrezygnować z dodatku, którego nie lubisz.</p>
+
+                        <button><a href="#creator">Zaczynamy</a></button>
+
+                    </div>
+
+                </div>
             </div>
 
     </section>
 
-    <section id="creator" class="row">
+
+    <section class="prices row" id="prices">
         <div class="container">
+
+
+        </div>
+    </section>
+
+    <section class="creator row" id="creator" >
+        <div class="container">
+
+
             <div class="col-6">
                 Wybierz dodatki
                 <ul>
@@ -140,7 +148,10 @@
             </div>
 
             <div class="col-6 pizza">
-                Twoja pizza
+                <div class="overlay">
+                    <h3>Twoja pizza</h3>
+                </div>
+
 
             </div>
 
@@ -149,7 +160,17 @@
 
     </section>
 
+    <section class="delivery row" id="delivery">
 
+
+    </section>
+
+    <section class="contact row" id="contact">
+        Adres:
+        Telefon
+        Email
+
+    </section>
 
 
 
