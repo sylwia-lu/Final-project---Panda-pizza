@@ -1,0 +1,42 @@
+
+.info {
+  height:900px;
+  padding-top:110px
+}
+
+
+.intro {
+  text-align: center;
+  font-size: 24px;
+  position: absolute;
+  top: 50px;
+
+  ul {
+    list-style: none;
+  }
+}
+
+.sidebar {
+  margin-top:-200px;
+  height:900px;
+  background-image: url("../img/board.png");
+  background-repeat: no-repeat;
+  background-position: left;
+  background-size: 100%;
+
+
+  .inner {
+    padding-top: 500px;
+    width:70%;
+    position: relative;
+    margin: 0 auto;
+
+
+    p {
+      text-align: center;
+      color: #fff;
+      font-size: 22px;
+    }
+
+  }
+}

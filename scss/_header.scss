@@ -1,0 +1,39 @@
+header {
+  height:180px;
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  z-index: 999;
+
+}
+
+
+
+.logo {
+  background-image: url(../img/logo.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 80px;
+  margin-top: 70px;
+}
+
+
+
+.menu {
+  float:right;
+  background-color: #000;
+
+
+  li {
+    list-style: none;
+    display: inline-block;
+    margin-left:50px;
+    a {
+      text-transform: uppercase;
+      text-decoration: none;
+      color: #fff;
+      font-size: 26px;
+    }
+  }
+
+}
