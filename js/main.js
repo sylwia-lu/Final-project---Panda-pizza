@@ -17,7 +17,7 @@ $(document).ready(function() {
     var midGroup2 = 2.5;
     var midGroup3 = 2;
 
-    var souce = 1.5;
+    var saucePrice = 1.5;
 
 
 
@@ -39,8 +39,6 @@ $(document).ready(function() {
 
 
 
-
-
 // check state of radio
 
     $("input[type='checkbox']").attr('disabled', 'disabled');
@@ -48,6 +46,7 @@ $(document).ready(function() {
 
     function checkRadio() {
         var checked;
+
         $("input[type='radio']").each(function(index, el) {
             if ($(this).prop('checked') == true) {
                 checked = true;
@@ -65,10 +64,7 @@ $(document).ready(function() {
             $(".alert").removeClass("hide");
         }
 
-
     })
-
-
 
 
 
@@ -77,36 +73,149 @@ $(document).ready(function() {
 
         $(this).change(function() {
 
-
                 if ($(this).prop('checked')==true) {
+                    $(".alert").remove();
 
-                    var name = $(this).attr("value");
-                    var prize;
-                    // setting prize
-                    switch (name) {
-                        case "duża":
-                            prize = bigPrice;
-                            break;
-                        case "średnia":
-                            prize = midPrice;
-                            break;
-                    }
                     $("input[type='checkbox']").removeAttr('disabled');
 
-                    $("#pizzaSize").text(name);
-                    $("#pizzaPrize").text(prize + "zł");
+                    addSize($(this));
 
                 }
-
-
         })
     })
 
 
+
+    function addSize(radio) {
+        var size = radio.attr("value");
+        var price;
+
+        // setting price
+        switch (size) {
+            case "duża":
+                price = bigPrice;
+                break;
+            case "średnia":
+                price = midPrice;
+                break;
+        }
+        if ($(".big").length) {
+            if  ($(".ingList .big").data("price") != size) {
+                    $(".ingList .big").data("size", size);
+                    $(".ingList .big").text(size);
+                    $(".priceList .big").data("price", price);
+                    $(".priceList .big").text(price + " zł");
+            }
+        }
+
+
+        else {
+
+            $(".ingList").append("<li class='big' data-size='" + size + "'>" + size + "</li>");
+            $(".priceList").append("<li class='big' data-price='" + size + "'>" + price +" zł</li>")
+
+        }
+    }
+
     $(".output").on("click", ".close", function() {
-        $(".output").empty();
+        $(".alert").addClass("hide");
+    });
+
+
+
+
+
+    $("input[type='checkbox']").change(function() {
+        var name = $(this).attr("value");
+
+        checkIngState($(this));
+
     })
 
+    function checkIngState(checkbox) {
+        var ingredient;
+        if (checkbox.prop('checked') == true) {
+                ingredient=checkbox;
+                addIng(ingredient, setPrice());
+        } else {
+            ingredient=checkbox
+            removeIng(ingredient);
+
+        }
+
+    }
+
+
+
+    function removeIng(ing) {
+        var name = ing.attr("value");
+        $(".ingList li").each(function(index, el) {
+            if ($(this).data('name') == name) {
+                $(this).remove();
+
+            }
+        })
+
+        $(".priceList li").each(function(index, el) {
+            if ($(this).data('name') == name) {
+                $(this).remove();
+
+            }
+        })
+    }
+
+
+    function setPrice() {
+        var ingAm = $("li[data-type='ingr']").length+1;
+        var pizzaSize = $(".big").data("size");
+        var ingPrice;
+        //var ingList =  document.querySelectorAll("[data-type='ingr']")
+
+        if (pizzaSize == "średnia") {
+            if (ingAm<=2) {
+                ingPrice = midGroup1;
+            }
+            if (ingAm==3||ingAm==4) {
+                ingPrice = midGroup2
+            }
+            if (ingAm>4) {
+                ingPrice = midGroup3
+            }
+        }
+
+        if (pizzaSize == "duża")    {
+            if (ingAm<=2) {
+                ingPrice = bigGroup1;
+            }
+            if (ingAm==3||ingAm==4) {
+                ingPrice = bigGroup2
+            }
+            if (ingAm>4) {
+                ingPrice = bigGroup3
+            }
+        }
+        console.log(ingPrice);
+       return(ingPrice);
+    }
+
+
+    function addIng(ing, price) {
+        var name = ing.attr("value");
+        var ingPrice = setPrice();
+        if (ing.hasClass("sauce")) {
+            $(".ingList").append("<li data-name='" + name +"'>sos "+ name +"</li>");
+            $(".priceList").append("<li data-name='" + name +"' data-price='" + saucePrice + "'>" + saucePrice +" zł</li>")
+
+        } else {
+
+          //  var price = setPrice();
+            $(".ingList").append("<li data-name='" + name + "' data-type='ingr'>"+ name +"</li>");
+            $(".priceList").append("<li data-name='" + name + "' data-price data-type='ingrPrice'></li>")
+            $("li[data-type='ingrPrice']").text(price + " zł");
+            $("li[data-type='ingrPrice']").data("price", price);
+
+        }
+    }
 
 
 
