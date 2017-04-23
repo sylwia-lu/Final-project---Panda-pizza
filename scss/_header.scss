@@ -20,14 +20,15 @@ header {
 
 
 .menu {
+  height:50px;
+  background-color: #3F3F3F;
+  display: inline-block;
   float:right;
-  background-color: #000;
-
-
   li {
     list-style: none;
     display: inline-block;
-    margin-left:50px;
+    padding:0 20px;
+
     a {
       text-transform: uppercase;
       text-decoration: none;

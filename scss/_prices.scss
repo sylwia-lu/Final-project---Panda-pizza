@@ -1,3 +1,31 @@
 .prices {
   height: 1000px;
+
+}
+
+
+table.price {
+  position:relative;
+  margin:0 auto;
+
+  th {
+    padding-bottom: 20px;
+  }
+  tr {
+    height:30px;
+
+      th, td {
+        text-align: center;
+        font-size:26px;
+
+      }
+
+  }
+
+
+  .devider td {
+    border-bottom: 2px dashed #D62929;
+    border-collapse: collapse;
+
+  }
 }

@@ -1,15 +1,133 @@
 .creator {
   height:1000px;
+
+
+  .title {
+    background-color: #3F3F3F;
+    color:#fff;
+    padding:10px;
+    z-index: 999;
+    position:relative;
+  }
+
+  .type {
+    font-size: 24px;
+  }
+
+  form {
+    margin-top:30px;
+
+    .choiceBox {
+      height:800px;
+      overflow-y:scroll;
+
+      .main {
+        margin-top:20px;
+      }
+
+
+    }
+    ul {
+      list-style: none;
+      font-size: 20px;
+
+      label {
+        cursor: pointer;
+
+        .checkbox, .radio {
+          position: absolute;
+          left: -999px;
+        }
+        input:checked + span {
+          color: #fff;
+          background-color: #3F3F3F;
+          padding:5px;
+        }
+      }
+
+    }
+
+    .size, .sauce {
+      position: relative;
+      margin: 0 auto;
+      width:50%;
+      li {
+        text-align:center;
+      }
+    }
+
+
+
+    ::-webkit-scrollbar-track {
+      -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+      border-radius: 10px;
+      background-color: #F5F5F5;
+    }
+
+    ::-webkit-scrollbar {
+      background-color: #F5F5F5;
+      border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb
+    {
+      border-radius: 10px;
+      -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+      background-color: #D62929;
+    }
+
+  }
+
 }
 
 
 
-
-
-.col-6.pizza {
-  height:600px;
+.pizza {
+  height:800px;
   background-image: url("../img/pizza.png");
   background-repeat: no-repeat;
   background-position: center;
-  padding: 0;
+  background-size: contain;
+  position:relative;
+
+  .output {
+    margin-top: 50px;
+    padding:20px;
+
+    .alert {
+      width:50%;
+      position: relative;
+      margin: 0 auto;
+      padding:20px 0;
+      color:#fff;
+      font-size:24px;
+      line-height: 24px;
+      text-align: center;
+      border:1px solid #D62929;
+      background-color: #D62929;
+      span {
+        font-size: 32px;
+        font-weight: bold;
+      }
+      .close {
+        font-family: sans-serif ;
+        color:#D62929;
+        display: inline-block;
+        float: right;
+        margin-right: 20px;
+        background-color: #fff;
+        width:28px;
+        height:28px;
+        border-radius: 50%;
+        cursor: pointer;
+      }
+
+
+    }
+
+
+
+
+  }
+
 }

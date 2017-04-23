@@ -1,4 +1,3 @@
-
 $columns: 12;
 $one-column-width:1/$columns;
 $max-container-width:1600px;
@@ -44,10 +43,22 @@ body {
 a {
   color:inherit;
 }
+h2 {
+  font-size:32px;
+  line-height: 32px;
+}
+
+h3 {
+  font-size:24px;
+  line-height: 24px;
+}
+
 .overlay {
   background-color: rgba(255, 255, 255, 0.3);
   width:100%;
   height: 100%;
+  position: absolute;
+  top: 0;
 
 }
 
@@ -58,4 +69,23 @@ a {
   max-width:$max-container-width;
   position: relative;
 
+}
+
+
+.main {
+  text-align: center;
+}
+
+.underline {
+  position: relative;
+  display:inline-block;
+  border-bottom: 5px solid #D62929;
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
 }

@@ -3,54 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <title>Pan da pizzę</title>
-    <link rel="stylesheet" href="css/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
 </head>
 <body>
 
 
-    <header class="row">
+<header>
+    <div class="container">
+        <nav>
+            <div class="row">
+                <div class="col-7 logo"id="logo" ></div>
 
-            <nav class="container">
-                <div class="col-4 logo"id="logo" ></div>
+                <div class="col-5">
 
-                <div class="col-8">
-                    <ul class="menu" id="menu">
-                        <li>
-                            <a href="#prices">
-                                Cennik
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#delivery">
-                                Dostawa
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#contact">
-                                Kontakt
-                            </a>
-                        </li>
-                    </ul>
+                        <ul class="menu" id="menu">
+                            <li>
+                                <a href="#prices">
+                                    Ceny
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#delivery">
+                                    Dostawa
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#contact">
+                                    Kontakt
+                                </a>
+                            </li>
+                        </ul>
+
+
 
 
 
                 </div>
 
-
-            </nav>
-
-    </header>
-
-
-    <section class="info row" id="info">
-
-            <div class="container">
+            </div>
 
 
 
+        </nav>
+    </div>
+</header>
 
+<div class="container">
+
+
+        <section class="info" id="info">
+
+            <div class="row">
                 <div class="col-6">
                     <div class="sidebar">
                         <div class="inner">
@@ -68,7 +74,7 @@
 
                 <div class="col-6">
                     <div class="intro">
-                        <p>Skomponuj własą pizzę i zamów ją do domu.</p>
+                        <h2 class="main">Skomponuj własą pizzę i <span class="underline">zamów ją do domu</span>.</h2>
                         <p>Wybierz:</p>
                         <ul>
                             <li>rozmiar</li>
@@ -86,99 +92,202 @@
                 </div>
             </div>
 
-    </section>
 
 
-    <section class="prices row" id="prices">
-        <div class="container">
 
 
-        </div>
-    </section>
-
-    <section class="creator row" id="creator" >
-        <div class="container">
+        </section>
 
 
-            <div class="col-6">
-                Wybierz dodatki
-                <ul>
-                    Dodatki mięsne
-                    <li>boczek</li>
-                    <li>kabanos</li>
-                    <li>kiełbasa "wiejska"</li>
-                    <li>kurczak</li>
-                    <li>salami</li>
-                    <li>szynka</li>
-                </ul>
-                <ul>
-                    Dodatki jarskie
+        <section class="prices" id="prices">
 
-                    <li>ananas</li>
-                    <li>brokuły</li>
-                    <li>cebula biała</li>
-                    <li>cebula czerwona</li>
-                    <li>czosnek</li>
-                    <li>feta</li>
-                    <li>kapary</li>
-                    <li>kukurydza</li>
-                    <li>ogórek konserowy</li>
-                    <li>oliwki czarne</li>
-                    <li>oliwki zielone</li>
-                    <li>papryka chilli</li>
-                    <li>papryka pepperoni</li>
-                    <li>pieczarki</li>
-                    <li>podwójny ser</li>
-                    <li>pomidor </li>
-                    <li>ser parmezan</li>
-                    <li>ser pleśniowy</li>
-                    <li>szpinak</li>
+            <div class="row">
+                <div class="col-12">
 
-                </ul>
+                    <table class="price">
+                        <thead>
+                        <tr>
+                            <th colspan="3">
+                                <h2 class="main">Cena każdej pizzy zawiera już <span class="underline">sos i mozzarellę</span>.</h2>
+                            </th>
+                        </tr>
 
-                <ul>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span>WIELKOŚĆ:</span></td>
+                                <td><span>duża - 40 cm</span></td>
+                                <td><span>średnia - 30 cm</span></td>
+                            </tr>
+                            <tr class="devider">
+                                <td></td>
+                                <td><span>14 zł</span></td>
+                                <td><span>11 zł</span></td>
+                            </tr>
 
-                </ul>
-                Owoce morza
-                <ul>
-                    <li>krewetki</li>
-                    <li>owoce morza (mix)</li>
-                    <li>tuńczyk</li>
-                </ul>
-            </div>
+                            <tr>
+                                <td>DODATKI:</td>
+                                <td></td>
+                                <td></td>
+                            </tr>
 
-            <div class="col-6 pizza">
-                <div class="overlay">
-                    <h3>Twoja pizza</h3>
+                            <tr>
+                                <td>do 2</td>
+                                <td>3,50 zł</td>
+                                <td>3,50 zł</td>
+                            </tr>
+
+                            <tr>
+                                <td>3-4</td>
+                                <td>3 zł</td>
+                                <td>2,5 zł</td>
+                            </tr>
+                            <tr>
+                                <td>5 i więcej</td>
+                                <td>2,5 zł</td>
+                                <td>2 zł</td>
+                            </tr>
+
+                            <tr class="devider">
+                                <td>podwójny ser</td>
+                                <td>3 zł</td>
+                                <td>2,50 zł</td>
+                            </tr>
+
+                            <tr class="devider">
+                                <td>SOSY:</td>
+                                <td colspan="2"><span>1,50 zł</span></td>
+
+                            </tr>
+                        </tbody>
+
+                    </table>
                 </div>
 
-
             </div>
 
-        </div>
-
-
-    </section>
-
-    <section class="delivery row" id="delivery">
-
-
-    </section>
-
-    <section class="contact row" id="contact">
-        Adres:
-        Telefon
-        Email
-
-    </section>
 
 
 
+        </section>
 
-    <footer>
+        <section class="creator" id="creator" >
+            <h2 class="main">Stwórz pizzę lub wybierz jedną z naszych propozycji</h2>
+            <form>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="choiceBox">
+                            <div class="row">
+                                <h3 class="main">Wybierz <span class="underline">rozmiar</span></h3>
+                                <div class="col-12">
+                                    <ul class="size">
+                                        <li><label class="pizzaSize"><input class="radio" type="radio" value="średnia" name="size"><span>średnia (30 cm)</span></label></li>
+                                        <li><label class="pizzaSize"><input class="radio" type="radio" value="duża" name="size"><span>duża (40 cm)</span></label></li>
+                                    </ul>
+
+                                </div>
+
+                            </div>
 
 
-    </footer>
+                                <div class="row all">
+                                    <h3 class="main">Wybierz <span class="underline">dodatki</span></h3>
+                                    <div class="col-4">
+                                        <p class="type">MIĘSNE</p>
+                                        <ul class="meat"></ul>
+                                    </div>
+                                    <div class="col-4">
+                                        <p class="type">JARSKIE</p>
+                                        <ul class="vege"></ul>
+                                    </div>
+                                    <div class="col-4">
+                                        <p class="type">OWOCE MORZA</p>
+                                        <ul class="sea"></ul>
+                                    </div>
+                                </div>
+
+                                <div class="row all">
+                                    <h3 class="main">Wybierz <span class="underline">sos</span></h3>
+                                    <div class="col-12">
+                                        <ul class="sauce">
+                                            <li><label class="ingredient"><input class="checkbox" type="checkbox" value="pomidorowy" name="pomidorowy"><span>pomidorowy</span></label></li>
+                                            <li><label class="ingredient"><input class="checkbox" type="checkbox" value="barbecue" name="barbecue"><span>barbecue</span></label></li>
+                                            <li><label class="ingredient"><input class="checkbox" type="checkbox" value="czosnkowy" name="czosnkowy"><span>czosnkowy</span></label></li>
+                                        </ul>
+
+                                    </div>
+                                </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-6">
+
+                        <div class="pizza">
+                            <h2 class="main title">Twoja pizza</h2>
+                            <div class="overlay">
+
+                               <div class="output">
+                                   <p class='alert hide'><span>!</span> Wybierz rozmiar<span class='close'>x</span></p>
+                                   <row>
+                                       <div class="col-6 left">
+                                            <p class="big" id="pizzaSize"></p>
+                                                <ul class="ingList">
+
+                                                </ul>
+                                       </div>
+
+                                       <div class="col-6 right">
+                                            <p class="big" id="pizzaPrize"></p>
+                                                <ul class="priceList">
+
+                                                </ul>
+                                       </div>
+                                   </row>
+                               </div>
+
+                            </div>
+
+                        </div>
+
+
+
+                    </div>
+
+
+                </div>
+
+            </form>
+
+
+
+
+        </section>
+
+        <section class="delivery" id="delivery">
+
+
+        </section>
+
+        <section class="contact" id="contact">
+            Adres:
+            Telefon
+            Email
+
+        </section>
+
+
+
+
+        <footer>
+
+
+        </footer>
+
+
+
+    </div>
 
 
 
@@ -187,4 +296,6 @@
 
 
 </body>
+
+<script src="js/main.js"></script>
 </html>
