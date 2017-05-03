@@ -1,3 +1,15 @@
+body {
+  font-family: 'Gloria Hallelujah', cursive;
+  background: url('../img/bg.jpg') repeat;
+  background-attachment: fixed;
+
+  section {
+    padding: 80px 0;
+
+  }
+}
+
+
 $columns: 12;
 $one-column-width:1/$columns;
 $max-container-width:1600px;
@@ -32,26 +44,30 @@ $max-container-width:1600px;
       }
       @include col-x-list;
 
+    @media screen and (max-width: 768px) {
+      .col-5, .col-6, .col-7, .col-8, {
+        float: none;
+        width: 100%;
+      }
+    }
+
   }
 
 
-body {
-  font-family: 'Gloria Hallelujah', cursive;
-  background: url('../img/bg.jpg') repeat;
-  background-attachment: fixed;
-}
-
 a {
   color:inherit;
+  text-decoration: none;
+  font-family: 'Gloria Hallelujah', cursive;
 }
 h2 {
-  font-size:32px;
-  line-height: 32px;
+  font-size:38px;
+  line-height: 40px;
 }
 
 h3 {
-  font-size:24px;
-  line-height: 24px;
+  font-size:28px;
+  line-height: 30px;
+  text-align: center;
 }
 
 .overlay {
@@ -75,6 +91,7 @@ h3 {
 
 .main {
   text-align: center;
+  margin-bottom:30px;
 }
 
 .underline {
@@ -88,5 +105,61 @@ h3 {
 }
 
 .show {
+  display: block !important;
+}
+
+.button {
+  background-color: #D62929;
+  width:auto;
+  padding:10px 20px;
   display: block;
+  position: relative;
+  margin:20px auto;
+  font-size: 24px;
+  font-family: 'Gloria Hallelujah', cursive;
+  color:#fff;
+  cursor: pointer;
+
+}
+
+a.button {
+  display: inline-block;
+}
+
+
+.title {
+  background-color: #3F3F3F;
+  color:#fff;
+  padding:20px;
+  z-index: 999;
+  position:relative;
+}
+
+.commonForm {
+  label {
+    display:block;
+    height:50px;
+    border:3px solid #3F3F3F;
+    margin:10px;
+    padding:5px;
+    width:92%;
+    background-color: rgba(255, 255, 255, 0.3);
+    text-align: center;
+    span {
+      font-size: 1.2vw;
+      display: inline-block;
+      width:43%;
+      line-height: 50px;
+    }
+    input {
+      font-size: 20px;
+      line-height: 46px;
+      padding: 10px;
+      box-sizing: border-box;
+      height:50px;
+      float:right;
+      width:55%;
+      border:1px solid #3F3F3F;
+    }
+  }
 }

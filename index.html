@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Pan da pizzę</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
@@ -15,7 +15,17 @@
     <div class="container">
         <nav>
             <div class="row">
-                <div class="col-7 logo"id="logo" ></div>
+                <div class="col-7">
+                    <div class="row">
+                        <div class="col-3 icon" id="icon">
+
+                        </div>
+                        <div class="col-9 logo" id="logo">
+                            Pan da pizzę
+                        </div>
+                    </div>
+
+                </div>
 
                 <div class="col-5">
 
@@ -57,24 +67,11 @@
         <section class="info" id="info">
 
             <div class="row">
-                <div class="col-6">
-                    <div class="sidebar">
-                        <div class="inner">
-                            <p>Otwarte codziennie od 12:00 do 20:00</p>
-                            <p>10% zniżki dla studentów</p>
-                            <p>dowóz na terenie Podgórza - <a href="#">sprawdź zasięg</a></p>
-                        </div>
-
-
-                    </div>
-
-
-                </div>
 
 
                 <div class="col-6">
                     <div class="intro">
-                        <h2 class="main">Skomponuj własą pizzę i <span class="underline">zamów ją do domu</span>.</h2>
+                        <h2 class="main">Skomponuj własą pizzę i <span class="underline">zamów ją do domu</span></h2>
                         <p>Wybierz:</p>
                         <ul>
                             <li>rozmiar</li>
@@ -85,11 +82,28 @@
 
                         <p>Możesz też wybrać pizzę z naszych propozycji i zrezygnować z dodatku, którego nie lubisz.</p>
 
-                        <button><a href="#creator">Zaczynamy</a></button>
+                        <a class="button" href="#creator">Zaczynamy</a>
 
                     </div>
 
                 </div>
+
+                <div class="col-6">
+                    <div class="sidebar">
+                        <div class="inner">
+                            <p>Otwarte codziennie</p>
+                            <p>od 12:00 do 20:00</p>
+                            <p>10% zniżki dla studentów</p>
+                            <p>dowóz na terenie Podgórza</p>
+                            <p><a href="#delivery">sprawdź zasięg</a></p>
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
             </div>
 
 
@@ -173,7 +187,7 @@
 
         <section class="creator" id="creator" >
             <h2 class="main">Stwórz pizzę lub wybierz jedną z naszych propozycji</h2>
-            <form>
+            <form id="creatorForm">
                 <div class="row">
                     <div class="col-6">
                         <div class="choiceBox">
@@ -236,6 +250,7 @@
                                                 <ul class="ingList">
 
                                                 </ul>
+
                                        </div>
 
                                        <div class="col-2 right">
@@ -244,8 +259,20 @@
 
                                                 </ul>
                                        </div>
+
+                                   </row>
+
+                                   <row>
+                                       <div class="col-12 total hide">
+                                           <p class="red-info">Sos i mozzarella w cenie</p>
+                                           <p>Suma:<span class="amount"></span></p>
+                                           <button class="button creatorBtn">Przejdź do zamówienia</button>
+
+                                       </div>
                                    </row>
                                </div>
+
+
 
                             </div>
 
@@ -265,7 +292,102 @@
 
         </section>
 
+        <section class="order" id="order">
+
+
+                <form class="commonForm orderForm" id="orderForm">
+                    <h2 class="main title">Podaj swoje dane </h2>
+                    <div class="row">
+                        <div class="col-4">
+                            <label>
+                                <span>Imię i nazwisko</span>
+                                <input>
+                            </label>
+                        </div>
+                        <div class="col-4">
+                            <label>
+                                <span>Email</span>
+                                <input>
+                            </label>
+                        </div>
+                        <div class="col-4">
+                            <label>
+                                <span>Potwierdź email</span>
+                                <input>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                            <div class="col-4">
+                                <label>
+                                    <span>Ulica i numer</span>
+                                    <input>
+                                </label>
+                            </div>
+                            <div class="col-4">
+                                <label>
+                                    <span>Kod pocztowy</span>
+                                    <input class="postCode">
+                                </label>
+                            </div>
+                            <div class="col-4">
+                                <label>
+                                    <span>Telefon</span>
+                                    <input>
+                                </label>
+                            </div>
+
+                    </div>
+
+                    <div class="row">
+                            <div class="col-4">
+
+                            </div>
+                            <div class="col-4">
+                                <input type="submit" class="button" value="Zamawiam">
+                            </div>
+                            <div class="col-4">
+
+                            </div>
+
+                    </div>
+                </form>
+
+
+        </section>
+
         <section class="delivery" id="delivery">
+            <h2 class="main">Zasięg naszego działania</h2>
+            <div class="row">
+                <div class="col-7">
+
+                    <div class="map">
+                        <img src="img/mapa.png">
+
+                    </div>
+                </div>
+                <div class="col-5">
+                    <div class="checkCode">
+                        <h3>Sprawdź czy dowieziemy Ci pizzę </h3>
+
+                        <form class="commonForm checkForm">
+                            <label>
+                                <span>Wpisz kod pocztowy</span>
+                                <input placeholder="__-___" class="postCode">
+                            </label>
+                            <input type="submit" class="button" value="Sprawdź">
+                        </form>
+                        <div class="msgBox">
+                            <p class="positive"><img src="img/panda-ok.png"><span>Przywieziemy Ci pizzę do domu :)</span></p>
+                            <p class="negative"><img src="img/panda-ko.png"><span>Niestety jesteś poza obszarem naszego zasięgu :(</span></p>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
 
 
         </section>

@@ -1,24 +1,16 @@
 .creator {
-  height:1000px;
+  height:auto;
 
-
-  .title {
-    background-color: #3F3F3F;
-    color:#fff;
-    padding:10px;
-    z-index: 999;
-    position:relative;
-  }
 
   .type {
     font-size: 24px;
   }
 
   form {
-    margin-top:30px;
+
 
     .choiceBox {
-      height:800px;
+      height:1000px;
       overflow-y:scroll;
 
       .main {
@@ -29,7 +21,7 @@
     }
     ul {
       list-style: none;
-      font-size: 20px;
+      font-size: 24px;
 
       label {
         cursor: pointer;
@@ -84,7 +76,7 @@
 
 
 .pizza {
-  height:800px;
+  height:1000px;
   background-image: url("../img/pizza.png");
   background-repeat: no-repeat;
   background-position: center;
@@ -95,10 +87,17 @@
     margin-top: 50px;
     padding:20px 50px;
 
+
+    .red-info {
+      color:#D62929;
+      font-size:24px;
+      font-weight: bold;
+    }
+
     .alert {
       width:50%;
       position: relative;
-      margin: 0 auto;
+      margin: 30px auto;
       padding:20px 0;
       color:#fff;
       font-size:24px;
@@ -107,7 +106,7 @@
       border:1px solid #D62929;
       background-color: #D62929;
       span {
-        font-size: 32px;
+        font-size: 34px;
         font-weight: bold;
       }
       .close {
@@ -129,9 +128,35 @@
 
     }
     .big {
-      font-size:32px;
+      font-size:34px;
     }
   }
 
+  .total {
+    position: absolute;
+    bottom:20px;
+    left:0px;
+    font-size:32px;
+    padding:20px 50px;
+    animation-name: show;
+    animation-duration: 2s;
+
+      span {
+        display: inline-block;
+        border-top: 5px solid #3F3F3F;
+        float:right;
+        width:80px;
+        text-align: right;
+    }
+
+  }
+
+
+}
+
+
+@-webkit-keyframes show {
+  0%   {opacity: 0;}
+  100% {opacity: 1;}
 }
 

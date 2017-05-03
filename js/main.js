@@ -1,9 +1,11 @@
 $(document).ready(function() {
+
     var meat = ["boczek", "kabanos", "kiełbasa wiejska", "kurczak", "salami", "szynka", "szynka parmeńska"];
     var vege = ["ananas", "brokuły", "cebula biała", "cebula czerwona", "czosnek", "feta", "kapary", "kukurydza", "ogórek konserowy",
         "oliwki czarne", "oliwki zielone", "papryka czerwona", "papryka chili", "papryka peperoni", "pieczarki", "podwójny ser",
         "pomidor" ,"parmezan", "ser pleśniowy", "szpinak"];
     var sea = ["krewetki", "mix owoców morza" , "tuńczyk", "anchois"];
+    var codes = ["30-710","30-711","30-712","30-713","30-714","30-715","30-716","30-717","30-718","30-719","30-720","30-721","30-722","30-723","30-724","30-725","30-726","30-727","30-730","30-731","30-732","30-733","30-734","30-735","30-736","30-737","30-738"]
 
     //prices
     var bigPrice = 14;
@@ -67,6 +69,11 @@ $(document).ready(function() {
     })
 
 
+    $(".output").on("click", ".close", function() {
+        $(".alert").addClass("hide");
+    });
+
+
 
 
     $("input[type='radio']").each(function() {
@@ -84,8 +91,6 @@ $(document).ready(function() {
         })
     })
 
-
-
     function addSize(radio) {
         var size = radio.attr("value");
         var price;
@@ -101,26 +106,56 @@ $(document).ready(function() {
         }
         if ($(".big").length) {
             if  ($(".ingList .big").data("price") != size) {
-                    $(".ingList .big").data("size", size);
-                    $(".ingList .big").text(size);
-                    $(".priceList .big").data("price", price);
-                    $(".priceList .big").text(price + " zł");
+                $(".ingList .big").data("size", size);
+                $(".ingList .big").text(size);
+                $(".priceList .big").attr("data-price", price);
+                $(".priceList .big").text(price + " zł");
+
+                changePrice();
             }
         }
-
-
         else {
 
             $(".ingList").append("<li class='big' data-size='" + size + "'>" + size + "</li>");
-            $(".priceList").append("<li class='big' data-price='" + size + "'>" + price +" zł</li>")
-
+            $(".priceList").append("<li class='big' data-price='" + price + "'>" + price +" zł</li>");
+            $(".total").removeClass("hide");
+            sumAmount();
         }
     }
 
-    $(".output").on("click", ".close", function() {
-        $(".alert").addClass("hide");
-    });
 
+    function changePrice() {
+        var ingAm = $("li[data-type='ingr']").length;
+        var pizzaSize = $(".big").data("size");
+        var ingPrice;
+        if (pizzaSize == "średnia") {
+            if (ingAm<=2) {
+                ingPrice = midGroup1;
+            }
+            if (ingAm==3||ingAm==4) {
+                ingPrice = midGroup2
+            }
+            if (ingAm>4) {
+                ingPrice = midGroup3
+            }
+        }
+
+        if (pizzaSize == "duża")    {
+            if (ingAm<=2) {
+                ingPrice = bigGroup1;
+            }
+            if (ingAm==3||ingAm==4) {
+                ingPrice = bigGroup2
+            }
+            if (ingAm>4) {
+                ingPrice = bigGroup3
+            }
+        }
+        $("li[data-type='ingrPrice']").text(ingPrice + " zł");
+        $("li[data-type='ingrPrice']").attr("data-price", ingPrice);
+        sumAmount();
+
+    }
 
 
 
@@ -146,12 +181,12 @@ $(document).ready(function() {
     }
 
 
-
     function removeIng(ing) {
         var name = ing.attr("value");
         $(".ingList li").each(function(index, el) {
             if ($(this).data('name') == name) {
                 $(this).remove();
+
 
             }
         })
@@ -162,6 +197,9 @@ $(document).ready(function() {
 
             }
         })
+        changePrice();
+        sumAmount();
+
     }
 
 
@@ -169,7 +207,6 @@ $(document).ready(function() {
         var ingAm = $("li[data-type='ingr']").length+1;
         var pizzaSize = $(".big").data("size");
         var ingPrice;
-        //var ingList =  document.querySelectorAll("[data-type='ingr']")
 
         if (pizzaSize == "średnia") {
             if (ingAm<=2) {
@@ -194,35 +231,106 @@ $(document).ready(function() {
                 ingPrice = bigGroup3
             }
         }
-        console.log(ingPrice);
+
        return(ingPrice);
     }
 
 
     function addIng(ing, price) {
         var name = ing.attr("value");
-        var ingPrice = setPrice();
+
         if (ing.hasClass("sauce")) {
             $(".ingList").append("<li data-name='" + name +"'>sos "+ name +"</li>");
             $(".priceList").append("<li data-name='" + name +"' data-price='" + saucePrice + "'>" + saucePrice +" zł</li>")
+            sumAmount();
 
         } else {
 
-          //  var price = setPrice();
-            $(".ingList").append("<li data-name='" + name + "' data-type='ingr'>"+ name +"</li>");
-            $(".priceList").append("<li data-name='" + name + "' data-price data-type='ingrPrice'></li>")
-            $("li[data-type='ingrPrice']").text(price + " zł");
-            $("li[data-type='ingrPrice']").data("price", price);
 
+            $(".ingList").append("<li data-name='" + name + "' data-type='ingr'>"+ name +"</li>");
+            $(".priceList").append("<li data-name='" + name + "' data-type='ingrPrice'></li>")
+            $("li[data-type='ingrPrice']").text(price + " zł").attr("data-price", price);
+
+            sumAmount();
         }
     }
 
+    function sumAmount() {
+        var prices = $("li[data-price]");
+
+        var total=0;
+
+        for (var i=0; i<prices.length; i++) {
+
+            total+=Number($(prices[i]).attr("data-price"));
+
+        }
+        $(".amount").text(total);
+    }
+
+    $(".creatorBtn").click(function(e) {
+        e.preventDefault();
+        $(".order").addClass("show");
+    })
 
 
 
+    // Sprawdzanie kodu pocztowego
 
+    function checkCode(a) {
+        var code = $.trim(a.val());
+        a.val("");
+        var result;
+        for (var i = 0; i<codes.length; i++) {
+            if (code == codes[i]) {
+                result = true;
+                return result;
+
+            } else {
+                result = false;
+            }
+        }
+
+        return result;
+
+    }
+
+    $(".checkForm").submit(function (event) {
+        var code = $(this).find(".postCode");
+        event.preventDefault();
+        $(".msgBox p").removeClass("show");
+        if (checkCode(code)==true) {
+            $(".positive").addClass("show");
+
+        } else {
+            $(".negative").addClass("show");
+        }
+    })
+
+
+    $(".postCode").focus(function() {
+        $(".msgBox p").removeClass("show");
+
+    })
+
+
+    $(".orderForm").submit(function (event) {
+        var code = $(this).find(".postCode");
+        event.preventDefault();
+        if (checkCode(code)==true) {
+            console.log("dzisla")
+
+        } else {
+            console.log("dzisla")
+
+        }
+    })
 
 });
+
+
+
+
 
 
 

@@ -1,40 +1,43 @@
 header {
   height:180px;
-  position: fixed;
+  position: absolute;
   top: 0px;
   width: 100%;
   z-index: 999;
 
-}
 
-
-
-.logo {
-  background-image: url(../img/logo.png);
-  background-size: contain;
-  background-repeat: no-repeat;
-  height: 80px;
-  margin-top: 70px;
-}
-
-
-
-.menu {
-  height:50px;
-  background-color: #3F3F3F;
-  display: inline-block;
-  float:right;
-  li {
-    list-style: none;
-    display: inline-block;
-    padding:0 20px;
-
-    a {
-      text-transform: uppercase;
-      text-decoration: none;
-      color: #fff;
-      font-size: 26px;
-    }
+  .icon {
+    background-image: url(../img/logo.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 80px;
+    margin-top: 70px;
   }
 
+  .logo {
+    height:150px;
+    font-size:64px;
+    line-height: 150px;
+  }
+
+  .menu {
+    height:50px;
+    background-color: #3F3F3F;
+    display: inline-block;
+    float:right;
+    li {
+      list-style: none;
+      display: inline-block;
+      padding:0 20px;
+
+      a {
+        text-transform: uppercase;
+        text-decoration: none;
+        color: #fff;
+        font-size: 26px;
+      }
+    }
+
+  }
 }
+
