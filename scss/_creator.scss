@@ -94,34 +94,7 @@
       font-weight: bold;
     }
 
-    .alert {
-      width:50%;
-      position: relative;
-      margin: 30px auto;
-      padding:20px 0;
-      color:#fff;
-      font-size:24px;
-      line-height: 24px;
-      text-align: center;
-      border:1px solid #D62929;
-      background-color: #D62929;
-      span {
-        font-size: 34px;
-        font-weight: bold;
-      }
-      .close {
-        font-family: sans-serif ;
-        color:#D62929;
-        display: inline-block;
-        float: right;
-        margin-right: 20px;
-        background-color: #fff;
-        width:28px;
-        height:28px;
-        border-radius: 50%;
-        cursor: pointer;
-      }
-    }
+
     .right {
       float: right;
       text-align: right;

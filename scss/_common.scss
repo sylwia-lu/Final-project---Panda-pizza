@@ -6,7 +6,21 @@ body {
   section {
     padding: 80px 0;
 
+    @media screen and (max-width: 1024px) {
+      height:auto !important;
+    }
+
   }
+
+
+
+  .icon {
+    background-image: url(../img/logo.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 80px;
+  }
+
 }
 
 
@@ -101,7 +115,7 @@ h3 {
 }
 
 .hide {
-  display: none;
+  display: none !important;
 }
 
 .show {
@@ -146,10 +160,12 @@ a.button {
     background-color: rgba(255, 255, 255, 0.3);
     text-align: center;
     span {
-      font-size: 1.2vw;
+      font-size: 18px;
       display: inline-block;
       width:43%;
       line-height: 50px;
+
+
     }
     input {
       font-size: 20px;
@@ -163,3 +179,36 @@ a.button {
     }
   }
 }
+
+.alert {
+  width:50%;
+  position: relative;
+  margin: 30px auto;
+  padding:20px 0;
+  color:#D62929;
+  font-size:24px;
+  line-height: 24px;
+  text-align: center;
+  border:3px solid #D62929;
+  font-weight: bold
+
+
+  span {
+    font-size: 24px;
+    line-height: 24px;
+    font-weight: normal;
+  }
+  .close {
+    font-family: sans-serif ;
+    color:#fff;
+    display: inline-block;
+    float: right;
+    margin-right: 20px;
+    background-color:#D62929;
+    width:28px;
+    height:28px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+}
+

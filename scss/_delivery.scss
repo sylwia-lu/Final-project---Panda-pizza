@@ -1,10 +1,13 @@
 .delivery {
-  height:1000px;
+  height:1200px;
   .map {
     margin-top: 20px;
     height:700px;
     width: 100%;
     position:relative;
+    @media screen and (max-width: 1024px) {
+      height:auto;
+    }
     img {
       border: 3px solid #3F3F3F;
       width:100%;

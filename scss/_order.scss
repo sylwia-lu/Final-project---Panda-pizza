@@ -1,5 +1,5 @@
 .order {
-  height:500px;
+  height:700px;
   padding:0;
   transition: max-height 0.8s linear;
   display: none;
@@ -9,7 +9,20 @@
     max-width: 1200px;
     margin: 0 auto;
 
+    .input-container {
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:space-around;
+
+      label {
+        width:350px;
+      }
+
+    }
+
+
   }
+
 
 
 

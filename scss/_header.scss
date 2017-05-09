@@ -5,12 +5,7 @@ header {
   width: 100%;
   z-index: 999;
 
-
   .icon {
-    background-image: url(../img/logo.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-    height: 80px;
     margin-top: 70px;
   }
 
@@ -25,17 +20,18 @@ header {
     background-color: #3F3F3F;
     display: inline-block;
     float:right;
+
     li {
       list-style: none;
       display: inline-block;
       padding:0 20px;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: #fff;
+      font-size: 26px;
+      cursor: pointer;
 
-      a {
-        text-transform: uppercase;
-        text-decoration: none;
-        color: #fff;
-        font-size: 26px;
-      }
+
     }
 
   }

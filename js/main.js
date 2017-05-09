@@ -47,14 +47,13 @@ $(document).ready(function() {
 
 
     function checkRadio() {
-        var checked;
 
         $("input[type='radio']").each(function(index, el) {
             if ($(this).prop('checked') == true) {
-                checked = true;
+                return true;
             }
         })
-        return checked;
+
     }
 
 
@@ -63,14 +62,14 @@ $(document).ready(function() {
     $(".all").click(function() {
 
         if (checkRadio()!=true) {
-            $(".alert").removeClass("hide");
+            $(".output .alert").removeClass("hide");
         }
 
     })
 
 
     $(".output").on("click", ".close", function() {
-        $(".alert").addClass("hide");
+        $(".output .alert").addClass("hide");
     });
 
 
@@ -81,7 +80,7 @@ $(document).ready(function() {
         $(this).change(function() {
 
                 if ($(this).prop('checked')==true) {
-                    $(".alert").remove();
+                    $(".output .alert").remove();
 
                     $("input[type='checkbox']").removeAttr('disabled');
 
@@ -240,7 +239,7 @@ $(document).ready(function() {
         var name = ing.attr("value");
 
         if (ing.hasClass("sauce")) {
-            $(".ingList").append("<li data-name='" + name +"'>sos "+ name +"</li>");
+            $(".ingList").append("<li data-name='" + name +"' data-type='sauce'>sos "+ name +"</li>");
             $(".priceList").append("<li data-name='" + name +"' data-price='" + saucePrice + "'>" + saucePrice +" zł</li>")
             sumAmount();
 
@@ -279,7 +278,7 @@ $(document).ready(function() {
 
     function checkCode(a) {
         var code = $.trim(a.val());
-        a.val("");
+        //a.val("");
         var result;
         for (var i = 0; i<codes.length; i++) {
             if (code == codes[i]) {
@@ -295,9 +294,10 @@ $(document).ready(function() {
 
     }
 
-    $(".checkForm").submit(function (event) {
+    $(".checkForm").submit(function (e) {
+        e.preventDefault();
         var code = $(this).find(".postCode");
-        event.preventDefault();
+
         $(".msgBox p").removeClass("show");
         if (checkCode(code)==true) {
             $(".positive").addClass("show");
@@ -314,17 +314,168 @@ $(document).ready(function() {
     })
 
 
-    $(".orderForm").submit(function (event) {
-        var code = $(this).find(".postCode");
-        event.preventDefault();
-        if (checkCode(code)==true) {
-            console.log("dzisla")
+
+
+
+
+
+     function createPizza() {
+            var pizza = {};
+            var liItems = $(".ingList li[data-type =  'ingr']");
+            var ingr =[];
+            for (var i=0; i<liItems.length; i++) {
+                //console.log($(liItems[i]).data("name"))
+                ingr.push($(liItems[i]).data("name"));
+            }
+
+            pizza["rozmiar"] = $(".ingList li[data-size]").data("size");
+            pizza["składniki"] = ingr;
+            pizza["sos"] = $(".ingList li[data-type = 'sauce']").data("name");
+
+            return pizza;
+     }
+
+    function createCust() {
+        var customer = {};
+
+
+    }
+
+
+    function validate() {
+
+        var pizza = createPizza();
+        var custName = $("#custName").val();
+        var address = $("#address").val();
+        var email = $("#email").val();
+        var phone = $("#phone").val();
+        var code = $(".order .postCode").val();
+
+        var nameChecked;
+        var addressChecked;
+        var emailChecked;
+        var phoneChecked;
+        var codeChecked;
+
+        if (custName.length<=0) {
+            nameChecked = false;
+            $(".order .alert").append("<p>Wprowadź imię i nazwisko</p>")
+        }
+
+        if (address.length<=0) {
+            addressChecked = false;
+            $(".order .alert").append("<p>Wprowadź adres</p>")
+        }
+
+
+
+        if (code.length<=0) {
+            codeChecked = false;
+            $(".order .alert").append("<p>Wprowadź kod pocztowy</p>")
+        } else {
+            if (code.match(/[a-z]/i) ) {
+                codeChecked = false;
+                $(".order .alert").append("<p>Niepoprawny kod pocztowy</p>")
+            }
+        }
+
+        if (email.length<=0) {
+            emailChecked = false;
+            $(".order .alert").append("<p>Wprowadź email</p>")
+        } else {
+
+            if ((email.indexOf("@")==-1)||(email.indexOf(".")==-1)) {
+                emailChecked = false;
+                $(".order .alert").append("<p>Niepoprawny email</p>")
+            }
+        }
+
+        if (phone.length<=0) {
+            phoneChecked = false;
+            $(".order .alert").append("<p>Wprowadź numer telefonu</p>")
+        } else {
+            if ( phone.match(/[a-z]/i)  || phone.length<9) {
+                phoneChecked = false;
+                $(".order .alert").append("<p>Niepoprawny numer telefonu</p>")
+            }
+        }
+
+
+        if (nameChecked==false || addressChecked==false || emailChecked==false || codeChecked==false || phoneChecked==false ){
+            $(".order .alert").removeClass("hide");
 
         } else {
-            console.log("dzisla")
+            $(".order .alert").empty();
+            $("#validateBtn").addClass("hide");
+            $("#orderBtn").removeClass("hide");
 
+            var postCode = $(".order .postCode");
+            if (checkCode(postCode)==false) {
+                $(".order .alert").append('<p>Niestety jesteś poza zasięgiem dostawy, musisz odebrać pizzę osobiście.</p>');
+                $(".order .alert").removeClass("hide");
+                pizza.dostawa = "odbiór osobisty";
+
+
+            } else {
+                $(".order .alert").append('<p>Dostarczymy Ci pizzę do domu. Czas oczekiwania - 45 min.</p>');
+                $(".order .alert").removeClass("hide");
+                pizza.dostawa = "dostawa do domu";
+
+
+            }
+
+            $(".orderForm").submit(function (e) {
+                e.preventDefault();
+
+                customer = {imieNazwisko: custName, adres: address,  email: email, telefon: phone, kodPocztowy: code }
+                order(customer, pizza);
+
+
+            })
         }
+
+
+
+    }
+
+
+    function order(data1, data2) {
+
+        var customerData = data1;
+        var pizza = data2;
+       // console.log(pizza, customerData);
+
+        var url = "http://localhost:3000";
+        var zamówienie = {
+            customerData,
+            pizza,
+        }
+        $.ajax({
+            method: "POST",
+            url: url + "/zamowienia",
+            dataType: "json",
+            data: zamówienie,
+        }).done(function(response) {
+            console.log(response);
+        });
+
+    }
+
+
+
+    $("#validateBtn").click(function(e) {
+        e.preventDefault();
+        $(".order .alert").empty();
+        validate();
     })
+
+
+
+
+
+
+
+
 
 });
 

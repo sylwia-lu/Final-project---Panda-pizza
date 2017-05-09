@@ -30,20 +30,14 @@
                 <div class="col-5">
 
                         <ul class="menu" id="menu">
-                            <li>
-                                <a href="#prices">
+                            <li id="scrollPrices">
                                     Ceny
-                                </a>
                             </li>
-                            <li>
-                                <a href="#delivery">
+                            <li id="scrollDelivery">
                                     Dostawa
-                                </a>
                             </li>
-                            <li>
-                                <a href="#contact">
+                            <li id="scrollContact">
                                     Kontakt
-                                </a>
                             </li>
                         </ul>
 
@@ -69,24 +63,6 @@
             <div class="row">
 
 
-                <div class="col-6">
-                    <div class="intro">
-                        <h2 class="main">Skomponuj własą pizzę i <span class="underline">zamów ją do domu</span></h2>
-                        <p>Wybierz:</p>
-                        <ul>
-                            <li>rozmiar</li>
-                            <li>dodatki - sos i mozzarella są podstawą</li>
-                            <li>sosy</li>
-                        </ul>
-
-
-                        <p>Możesz też wybrać pizzę z naszych propozycji i zrezygnować z dodatku, którego nie lubisz.</p>
-
-                        <a class="button" href="#creator">Zaczynamy</a>
-
-                    </div>
-
-                </div>
 
                 <div class="col-6">
                     <div class="sidebar">
@@ -101,6 +77,25 @@
 
                     </div>
 
+
+                </div>
+
+
+
+                <div class="col-6">
+                    <div class="intro">
+                        <h2 class="main">Skomponuj własą pizzę i <span class="underline">zamów ją do domu</span></h2>
+                        <p>Wybierz:</p>
+                        <ul>
+                            <li>rozmiar</li>
+                            <li>dodatki (sos i mozzarella są podstawą)</li>
+                            <li>sosy</li>
+                        </ul>
+
+
+                        <button class="button" id="scrollCreator">Zaczynamy</button>
+
+                    </div>
 
                 </div>
 
@@ -243,7 +238,7 @@
                             <div class="overlay">
 
                                <div class="output">
-                                   <p class='alert hide'><span>!</span> Wybierz rozmiar<span class='close'>x</span></p>
+                                   <div class='alert hide'>! Wybierz rozmiar<span class='close'>x</span></div>
                                    <row>
                                        <div class="col-10 left">
 
@@ -297,46 +292,46 @@
 
                 <form class="commonForm orderForm" id="orderForm">
                     <h2 class="main title">Podaj swoje dane </h2>
-                    <div class="row">
-                        <div class="col-4">
+
+                    <div class="input-container">
                             <label>
                                 <span>Imię i nazwisko</span>
-                                <input>
+                                <input id="custName" type="text">
                             </label>
-                        </div>
-                        <div class="col-4">
+
+
+                            <label>
+                                <span>Ulica i numer</span>
+                                <input id="address" type="text">
+                            </label>
+
+
+                            <label>
+                                <span>Kod pocztowy</span>
+                                <input class="postCode" placeholder="__-___">
+                            </label>
+
                             <label>
                                 <span>Email</span>
-                                <input>
+                                <input id="email" type="email">
                             </label>
-                        </div>
-                        <div class="col-4">
+
+
                             <label>
-                                <span>Potwierdź email</span>
-                                <input>
+                                <span>Telefon</span>
+                                <input id="phone" type="tel">
                             </label>
+
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-12">
+                            <div class="alert hide">
+
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="row">
-                            <div class="col-4">
-                                <label>
-                                    <span>Ulica i numer</span>
-                                    <input>
-                                </label>
-                            </div>
-                            <div class="col-4">
-                                <label>
-                                    <span>Kod pocztowy</span>
-                                    <input class="postCode">
-                                </label>
-                            </div>
-                            <div class="col-4">
-                                <label>
-                                    <span>Telefon</span>
-                                    <input>
-                                </label>
-                            </div>
 
                     </div>
 
@@ -345,13 +340,16 @@
 
                             </div>
                             <div class="col-4">
-                                <input type="submit" class="button" value="Zamawiam">
+                                <button class="button" id="validateBtn">Sprawdź wprowadzone dane</button>
+                                <input id="orderBtn" type="submit" class="button hide" value="Zamawiam">
                             </div>
                             <div class="col-4">
 
                             </div>
 
                     </div>
+
+
                 </form>
 
 
@@ -374,7 +372,7 @@
                         <form class="commonForm checkForm">
                             <label>
                                 <span>Wpisz kod pocztowy</span>
-                                <input placeholder="__-___" class="postCode">
+                                <input type="text" placeholder="__-___" class="postCode">
                             </label>
                             <input type="submit" class="button" value="Sprawdź">
                         </form>
@@ -393,24 +391,46 @@
         </section>
 
         <section class="contact" id="contact">
-            Adres:
-            Telefon
-            Email
+
+                <div class="row">
+
+                        <div class="col-4"><p>Adres:</p></div>
+                        <div class="col-4"><p>Telefon:</p></div>
+                        <div class="col-4"><p>Email:</p></div>
+
+
+                </div>
+
+
 
         </section>
 
 
 
 
-        <footer>
+
+</div>
 
 
-        </footer>
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="icon">
+
+                </div>
+                <p>PANDA PIZZA © 2017. All Rights Reserved.</p>
+            </div>
 
 
 
+
+        </div>
     </div>
 
+</footer>
 
 
 
@@ -420,4 +440,5 @@
 </body>
 
 <script src="js/main.js"></script>
+<script src="js/visual.js"></script>
 </html>
