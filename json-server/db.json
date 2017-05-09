@@ -1,0 +1,44 @@
+{
+  "zamowienia": [
+    {
+      "daneKlienta[imieNazwisko]": "Sylwia Luchowska",
+      "daneKlienta[adres]": "Przewóz 38/142",
+      "daneKlienta[email]": "sylwia_lu@wp.pl",
+      "daneKlienta[telefon]": "721688635",
+      "daneKlienta[kodPocztowy]": "30-852",
+      "szczegółyZamówienia[rozmiar]": "średnia",
+      "szczegółyZamówienia[składniki][]": "brokuły",
+      "szczegółyZamówienia[dostawa]": "odbiór osobisty",
+      "id": 1
+    },
+    {
+      "daneKlienta[imieNazwisko]": "Adrian",
+      "daneKlienta[adres]": "kanapka",
+      "daneKlienta[email]": "adek@wp.pl",
+      "daneKlienta[telefon]": "7524664554",
+      "daneKlienta[kodPocztowy]": "98-874",
+      "szczegółyZamówienia[rozmiar]": "średnia",
+      "szczegółyZamówienia[składniki][]": [
+        "cebula czerwona",
+        "kapary"
+      ],
+      "szczegółyZamówienia[dostawa]": "odbiór osobisty",
+      "id": 2
+    },
+    {
+      "customerData[imieNazwisko]": "Sylwia Luchowska",
+      "customerData[adres]": "Przewóz 38/142",
+      "customerData[email]": "sylwia_lu@wp.pl",
+      "customerData[telefon]": "721688635",
+      "customerData[kodPocztowy]": "30-716",
+      "pizza[rozmiar]": "średnia",
+      "pizza[składniki][]": [
+        "brokuły",
+        "czosnek"
+      ],
+      "pizza[sos]": "barbecue",
+      "pizza[dostawa]": "dostawa do domu",
+      "id": 3
+    }
+  ]
+}

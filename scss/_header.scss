@@ -6,21 +6,43 @@ header {
   z-index: 999;
 
   .icon {
-    margin-top: 70px;
+    display:inline-block;
+    width:100px;
+    height:100px;
+    margin:20px 30px 0 0;
+    float:left;
+    @media screen and (max-width: 768px) {
+      margin:20px 10px;
+
+    }
   }
 
   .logo {
     height:150px;
-    font-size:64px;
+    display:inline-block;
+    font-size:56px;
     line-height: 150px;
+    position:absolute;
+    top:0px;
+    text-align: center;
+
+    @media screen and (min-width: 1300px) {
+      right:0px
+    }
+
+
+    @media screen and (max-width: 1024px) {
+      font-size:48px;
+    }
+
+    @media screen and (max-width: 768px) {
+      font-size:36px;
+
+    }
   }
 
-  .menu {
-    height:50px;
+  nav {
     background-color: #3F3F3F;
-    display: inline-block;
-    float:right;
-
     li {
       list-style: none;
       display: inline-block;
@@ -31,9 +53,78 @@ header {
       font-size: 26px;
       cursor: pointer;
 
+    }
+
+
+    &.desktop {
+      display: inline-block;
+      float:right;
+
+      li {
+        border-right:1px solid white;
+      }
+
+      @media screen and (max-width: 1024px) {
+        display: none
+
+      }
+
 
     }
 
+
+    &.mobile {
+      display:none;
+      width:300px;
+
+      @media screen and (max-width: 1024px) {
+        display: block;
+        position: absolute;
+        top:0px;
+        right:0px
+      }
+      button {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        text-indent: 200%;
+        overflow: hidden;
+        background: rgba(255,255,255,.8) url("../img/hamburger.png") center no-repeat;
+        border: 1px solid #ddd;
+        border-radius: 3px;
+        background-size: 80%;
+        width: 60px;
+        height: 60px;
+        transition: all 400ms ease;
+        &.expanded {
+          transform: rotate(90deg);
+        }
+
+
+      }
+
+      ul {
+        display: none;
+        li {
+          display: block;
+          border-bottom:1px solid white;
+          height:60px;
+
+        }
+
+      }
+
+
+    }
   }
+
+
+
+
+
+
+
+
+
 }
 

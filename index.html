@@ -13,33 +13,49 @@
 
 <header>
     <div class="container">
-        <nav>
+
             <div class="row">
-                <div class="col-7">
-                    <div class="row">
-                        <div class="col-3 icon" id="icon">
+                <div class="col-6">
+
+                        <div class="icon" id="icon">
 
                         </div>
-                        <div class="col-9 logo" id="logo">
+                        <div class="logo" id="logo">
                             Pan da pizzę
                         </div>
-                    </div>
+
 
                 </div>
 
-                <div class="col-5">
-
-                        <ul class="menu" id="menu">
-                            <li id="scrollPrices">
-                                    Ceny
+                <div class="col-6">
+                    <nav class="desktop">
+                        <ul>
+                            <li class="scrollPrices">
+                                Ceny
                             </li>
-                            <li id="scrollDelivery">
-                                    Dostawa
+                            <li class="scrollDelivery">
+                                Dostawa
                             </li>
-                            <li id="scrollContact">
-                                    Kontakt
+                            <li class="scrollContact">
+                                Kontakt
                             </li>
                         </ul>
+                    </nav>
+
+                    <nav class="mobile">
+                        <button class="hamburger"></button>
+                        <ul>
+                            <li class="scrollPrices">
+                                Ceny
+                            </li>
+                            <li class="scrollDelivery">
+                                Dostawa
+                            </li>
+                            <li class="scrollContact">
+                                Kontakt
+                            </li>
+                        </ul>
+                    </nav>
 
 
 
@@ -50,8 +66,6 @@
             </div>
 
 
-
-        </nav>
     </div>
 </header>
 
@@ -64,21 +78,6 @@
 
 
 
-                <div class="col-6">
-                    <div class="sidebar">
-                        <div class="inner">
-                            <p>Otwarte codziennie</p>
-                            <p>od 12:00 do 20:00</p>
-                            <p>10% zniżki dla studentów</p>
-                            <p>dowóz na terenie Podgórza</p>
-                            <p><a href="#delivery">sprawdź zasięg</a></p>
-                        </div>
-
-
-                    </div>
-
-
-                </div>
 
 
 
@@ -88,7 +87,7 @@
                         <p>Wybierz:</p>
                         <ul>
                             <li>rozmiar</li>
-                            <li>dodatki (sos i mozzarella są podstawą)</li>
+                            <li>dodatki</li>
                             <li>sosy</li>
                         </ul>
 
@@ -96,6 +95,23 @@
                         <button class="button" id="scrollCreator">Zaczynamy</button>
 
                     </div>
+
+                </div>
+
+
+                <div class="col-6">
+                    <div class="sidebar">
+                        <div class="inner">
+                            <p>Otwarte codziennie</p>
+                            <p>od 12:00 do 20:00</p>
+                            <p>10% zniżki dla studentów</p>
+                            <p>dowóz na terenie Płaszowa</p>
+                            <p class="scrollDelivery">sprawdź zasięg</p>
+                        </div>
+
+
+                    </div>
+
 
                 </div>
 
@@ -181,7 +197,7 @@
         </section>
 
         <section class="creator" id="creator" >
-            <h2 class="main">Stwórz pizzę lub wybierz jedną z naszych propozycji</h2>
+            <h2 class="main">Stwórz pizzę, zamów i czekaj na dostawę do domu lub odbierz u nas</h2>
             <form id="creatorForm">
                 <div class="row">
                     <div class="col-6">

@@ -58,7 +58,7 @@ $max-container-width:1600px;
       }
       @include col-x-list;
 
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 1024px) {
       .col-5, .col-6, .col-7, .col-8, {
         float: none;
         width: 100%;

@@ -22,25 +22,29 @@ $("#scrollCreator").click(function() {
     }, 1000);
 });
 
-$("#scrollPrices").click(function() {
+$(".scrollPrices").click(function() {
     $('html, body').animate({
         scrollTop: $("#prices").offset().top
     }, 1000);
 });
 
-$("#scrollDelivery").click(function() {
+$(".scrollDelivery").click(function() {
     $('html, body').animate({
         scrollTop: $("#delivery").offset().top
     }, 1000);
 });
 
-$("#scrollContact").click(function() {
+$(".scrollContact").click(function() {
     $('html, body').animate({
         scrollTop: $("#contact").offset().top
     }, 1000);
 });
 
 slideUp();
+
+$('.hamburger').click(function() {
+    $(this).toggleClass('expanded').siblings('ul').slideToggle();
+});
 
 
 });
