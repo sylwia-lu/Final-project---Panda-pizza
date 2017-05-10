@@ -264,7 +264,7 @@ $(document).ready(function() {
             total+=Number($(prices[i]).attr("data-price"));
 
         }
-        $(".amount").text(total);
+        $(".amount").text(total + " zł");
     }
 
     $(".creatorBtn").click(function(e) {
