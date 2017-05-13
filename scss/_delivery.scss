@@ -1,5 +1,5 @@
 .delivery {
-  height:1200px;
+  height:600px;
   .map {
     margin-top: 20px;
     height:700px;
@@ -9,13 +9,13 @@
       height:auto;
     }
     img {
-      border: 3px solid #3F3F3F;
+      border: 1px solid #3F3F3F;
       width:100%;
     }
   }
 
   .checkCode {
-    margin:60px 10px;
+    margin:20px 10px;
     @media only screen and (max-width : 480px) {
       margin:40px 10px;
     }

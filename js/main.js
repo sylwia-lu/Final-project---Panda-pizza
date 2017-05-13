@@ -427,8 +427,9 @@ $(document).ready(function() {
             $(".orderForm").submit(function (e) {
                 e.preventDefault();
 
-                customer = {imieNazwisko: custName, adres: address,  email: email, telefon: phone, kodPocztowy: code }
+                customer = {imieNazwisko: custName, adres: address,  email: email, telefon: phone, kodPocztowy: code };
                 order(customer, pizza);
+                console.log(customer, pizza)
 
 
             })

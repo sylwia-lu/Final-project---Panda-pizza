@@ -40,7 +40,6 @@ $max-container-width:1600px;
 }
 
 
-
   .row {
 
 
@@ -203,7 +202,7 @@ a.button {
 }
 
 .alert {
-  width:50%;
+  width:70%;
   position: relative;
   margin: 30px auto;
   padding:20px 0;
@@ -213,9 +212,6 @@ a.button {
   text-align: center;
   border:3px solid #D62929;
   font-weight: bold;
-  @media only screen and (max-width : 768px) {
-      width:70%;
-  }
 
 
 
