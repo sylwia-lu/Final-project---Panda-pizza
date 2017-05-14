@@ -322,14 +322,14 @@ $(document).ready(function() {
      function createPizza() {
             var pizza = {};
             var liItems = $(".ingList li[data-type =  'ingr']");
-            var ingr =[];
+            var ingr=[];
             for (var i=0; i<liItems.length; i++) {
                 //console.log($(liItems[i]).data("name"))
                 ingr.push($(liItems[i]).data("name"));
             }
 
             pizza["rozmiar"] = $(".ingList li[data-size]").data("size");
-            pizza["składniki"] = ingr;
+            pizza["skladniki"] = ingr;
             pizza["sos"] = $(".ingList li[data-type = 'sauce']").data("name");
 
             return pizza;
@@ -429,7 +429,7 @@ $(document).ready(function() {
 
                 customer = {imieNazwisko: custName, adres: address,  email: email, telefon: phone, kodPocztowy: code };
                 order(customer, pizza);
-                console.log(customer, pizza)
+
 
 
             })
@@ -442,21 +442,30 @@ $(document).ready(function() {
 
     function order(data1, data2) {
 
-        var customerData = data1;
+        var klient = data1;
         var pizza = data2;
        // console.log(pizza, customerData);
 
+
+
         var url = "http://localhost:3000";
-        var zamówienie = {
-            customerData,
-            pizza,
+        var zamowienie = {};
+
+        for (i in klient){
+            zamowienie[i] = klient[i]
         }
+        for (i in pizza){
+            zamowienie[i] = pizza[i]
+        }
+
         $.ajax({
             method: "POST",
             url: url + "/zamowienia",
             dataType: "json",
-            data: zamówienie,
+            data: zamowienie,
         }).done(function(response) {
+            $(".confirmation").removeClass("hide");
+
             console.log(response);
         });
 

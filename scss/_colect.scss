@@ -1,0 +1,18 @@
+.collectOrder {
+  padding-top:0;
+
+
+  .orderList {
+    margin:40px;
+    .button {
+      font-size: 16px;
+    }
+    span {
+      color: #D62929;
+    }
+    border:1px solid black;
+    list-style: none;
+    padding:20px;
+  }
+
+}
