@@ -41,7 +41,7 @@ $(document).ready(function() {
 
 
 
-// check state of radio
+// sprawdzenie czy jest wybrany rozmiar
 
     $("input[type='checkbox']").attr('disabled', 'disabled');
 
@@ -57,7 +57,7 @@ $(document).ready(function() {
     }
 
 
-
+// alert o rozmiarze
 
     $(".all").click(function() {
 
@@ -73,7 +73,7 @@ $(document).ready(function() {
     });
 
 
-
+// aktywowanie checkboxow jesli jest wybrany rozmiar
 
     $("input[type='radio']").each(function() {
 
@@ -90,11 +90,15 @@ $(document).ready(function() {
         })
     })
 
+
+// dodawanie rozmiaru
+
     function addSize(radio) {
         var size = radio.attr("value");
         var price;
 
-        // setting price
+
+
         switch (size) {
             case "duża":
                 price = bigPrice;
@@ -103,16 +107,20 @@ $(document).ready(function() {
                 price = midPrice;
                 break;
         }
+
+        // sprawdzanie czy nie zmienil sie rozmiar i jesl tak - ustalenie nowej ceny dla skladnikow
         if ($(".big").length) {
             if  ($(".ingList .big").data("price") != size) {
-                $(".ingList .big").data("size", size);
-                $(".ingList .big").text(size);
-                $(".priceList .big").attr("data-price", price);
-                $(".priceList .big").text(price + " zł");
+                 $(".ingList .big").data("size", size);
+                 $(".ingList .big").text(size);
+                 $(".priceList .big").attr("data-price", price);
+                 $(".priceList .big").text(price + " zł");
 
-                changePrice();
+                 changePrice();
             }
         }
+
+        // ustalenie ceny za rozmiar
         else {
 
             $(".ingList").append("<li class='big' data-size='" + size + "'>" + size + "</li>");
@@ -122,6 +130,8 @@ $(document).ready(function() {
         }
     }
 
+
+    // zmiana ceny skladnikow przy zmianie rozmiaru
 
     function changePrice() {
         var ingAm = $("li[data-type='ingr']").length;
@@ -158,6 +168,7 @@ $(document).ready(function() {
 
 
 
+    // odznaczanie składnikow
 
     $("input[type='checkbox']").change(function() {
         var name = $(this).attr("value");
@@ -201,6 +212,7 @@ $(document).ready(function() {
 
     }
 
+// ustalanie ceny skladnikow
 
     function setPrice() {
         var ingAm = $("li[data-type='ingr']").length+1;
@@ -234,6 +246,7 @@ $(document).ready(function() {
        return(ingPrice);
     }
 
+// dodawanie składnikow
 
     function addIng(ing, price) {
         var name = ing.attr("value");
@@ -254,6 +267,8 @@ $(document).ready(function() {
         }
     }
 
+    // obliczanie kwoty za calosc
+
     function sumAmount() {
         var prices = $("li[data-price]");
 
@@ -270,6 +285,9 @@ $(document).ready(function() {
     $(".creatorBtn").click(function(e) {
         e.preventDefault();
         $(".order").addClass("show");
+        $('html, body').animate({
+            scrollTop: $(".order").offset().top
+        }, 1000);
     })
 
 
@@ -335,12 +353,8 @@ $(document).ready(function() {
             return pizza;
      }
 
-    function createCust() {
-        var customer = {};
 
-
-    }
-
+// walidacja formularza
 
     function validate() {
 
@@ -428,6 +442,7 @@ $(document).ready(function() {
                 e.preventDefault();
 
                 customer = {imieNazwisko: custName, adres: address,  email: email, telefon: phone, kodPocztowy: code };
+
                 order(customer, pizza);
 
 
@@ -439,13 +454,12 @@ $(document).ready(function() {
 
     }
 
+// wysylanie zamowienia
 
     function order(data1, data2) {
 
         var klient = data1;
         var pizza = data2;
-       // console.log(pizza, customerData);
-
 
 
         var url = "http://localhost:3000";
@@ -478,12 +492,6 @@ $(document).ready(function() {
         $(".order .alert").empty();
         validate();
     })
-
-
-
-
-
-
 
 
 
